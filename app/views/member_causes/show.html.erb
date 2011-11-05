@@ -1,0 +1,26 @@
+<h1><%= link_to @cause.title, cause_url(@cause) %></h1>
+
+<h2><%= @member.full_name %></h2>    
+
+<div class="member_info">
+	<img class="member_picture" src="<%= @member.photo_url %>" />
+	<p class="party"><%= @member.party.name %></p>
+	<p class="constituency"><%= @member.constituency %></p>
+	<p class="telephone"><%= @member.telephone %></p>
+	<ul class="email">
+		<% if @member.email %>
+			<% @member.email.split(';;').each do |email| %>
+				<li><%= link_to( email, "mailto:#{email}" ) %></li>
+			<% end %>
+		<% end %>
+	</ul>        
+	<div class="clear"></div>
+</div>                           
+<div class="member_rating">
+	<p><%= @member.first_name %> is <strong><%= @member_cause.rating_in_words %></strong> <%= @cause.title %></p>     
+	<div class="rating"><%= @member_cause.average_rating %></div>
+	<div class="clear"></div>
+</div>
+<div class="clear"></div>            
+
+<h2>Reports</h2>

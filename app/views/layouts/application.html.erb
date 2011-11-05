@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+             
+<div id="wrap">
+	<div id="header">
+		<h1><%= link_to "Crowdlobbying", root_url %></h1>
+	</div>
+	
+	<div id="content">
+		<%= yield %> 
+	</div> 
+</div>
 
 </body>
 </html>

@@ -1,0 +1,19 @@
+<h1>New Cause</h1>
+
+<%= form_for @cause do |f| %>
+
+	<p>
+		<%= f.label :title, "Title" %>
+		<%= f.text_field :title %>	
+	</p>                            
+	
+	<p>
+		<%= f.label :description, "Description" %>
+		<%= f.text_area :description, :size => '60x4' %>
+	</p>                            
+	
+	<p>
+		<%= f.submit "Create" %>
+	</p>
+	
+<% end %>

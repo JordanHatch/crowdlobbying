@@ -1,0 +1,23 @@
+<h1><%= @cause.title %></h1>
+
+<table>
+	<thead>
+		<tr>
+			<th scope="col">Member Name</th>
+			<th scope="col">Party</th>
+			<th scope="col">Average Rating</th>
+			<th scope="col"># Reports</th>
+		</tr>
+	</thead>
+	<tbody>  
+		<% @cause.member_causes.includes(:member).find_each do |member_cause| -%>
+			<tr>
+				<td><%= member_cause.member.full_name %></td> 
+			   	<td><%= member_cause.member.party.abbr %></td> 
+				<td class="rating_<%= member_cause.rating_class rescue 'none' %>"><%= member_cause.average_rating rescue "-" %></td>
+			   	<td><%= member_cause.report_count rescue "0" %></td> 
+				<td><%= link_to 'Reports', cause_member_url(@cause, member_cause.member) %>
+			</tr>                         
+		<% end -%>
+	</tbody>
+</table>

@@ -1,0 +1,11 @@
+<h1>Causes</h1>
+                
+<p><%= link_to 'Start a new cause', new_cause_url %></p>
+
+<table>
+	<tbody> 
+		<% @causes.each do |c| -%>
+			<tr><td><%= link_to c.title, cause_url(c) %></td></tr>
+		<% end -%>  
+	</tbody>
+</table>
