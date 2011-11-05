@@ -57,7 +57,9 @@ table th { background: #777; color: #fff; text-align: left; padding: 8px; }
 
 table td.rating_green { background: #BAD4C2; }
 table td.rating_yellow { background: #E7EAC0; }
-table td.rating_red { background: #D4AFAD; }              
+table td.rating_red { background: #D4AFAD; } 
+
+table td.no_reports { text-align: center; padding: 20px; }             
 
 .member_info {
 	background: #ddd;
@@ -76,7 +78,8 @@ table td.rating_red { background: #D4AFAD; }
 	padding: 10px;  
 	width: 47%;
 	float: right;   
-	height: 180px;
+	height: 180px;     
+	margin-bottom: 15px;
 }  
 .member_rating .rating {
 	font-size: 5em;
