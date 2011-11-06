@@ -12,6 +12,9 @@ gem 'mysql2'
 gem 'colorize'
 gem 'json'
 
+gem 'jquery-rails'
+gem 'hpricot'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -20,6 +23,6 @@ group :assets do
   #gem 'uglifier'
 end
 
-gem 'jquery-rails'
-
-gem 'hpricot' 
+group :production do
+  gem 'pg'
+end

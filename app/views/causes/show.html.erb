@@ -1,23 +1,58 @@
 <h1><%= @cause.title %></h1>
 
-<table id="member_causes">
-	<thead>
-		<tr>
-			<th scope="col">Member Name</th>
-			<th scope="col">Party</th>
-			<th scope="col">Average Rating</th>
-			<th scope="col"># Reports</th>
-		</tr>
-	</thead>
-	<tbody>  
-		<% @cause.member_causes.includes(:member).find_each do |member_cause| -%>
+<% unless @cause.description.empty? -%>           
+<div class="description">
+	<%= @cause.description %>
+</div>                               
+<% end -%>
+               
+<div class="column main_column">
+	<table class="sorted" id="member_causes">
+		<thead>
 			<tr>
-				<td><%= member_cause.member.full_name %></td> 
-			   	<td><%= member_cause.member.party.abbr %></td> 
-				<td class="rating_<%= member_cause.rating_class rescue 'none' %>"><%= member_cause.average_rating rescue "-" %></td>
-			   	<td><%= member_cause.report_count rescue "0" %></td> 
-				<td><%= link_to 'Reports', cause_member_url(@cause, member_cause.member) %>
-			</tr>                         
+				<th scope="col">Member Name</th>
+				<th scope="col">Party</th>
+				<th scope="col">Average Rating</th>
+				<th scope="col"># Reports</th>       
+			</tr>
+		</thead>
+		<tbody>  
+			<% @cause.member_causes.includes(:member).find_each do |member_cause| -%>
+				<tr class="<%= cycle('odd','even') %>">
+					<td class="member_name"><%= link_to member_cause.member.full_name, cause_member_url(@cause, member_cause.member) %></td> 
+				   	<td><%= member_cause.member.party.abbr %></td> 
+					<td class="rating_<%= member_cause.rating_class rescue 'none' %>"><%= member_cause.average_rating rescue "-" %></td>
+				   	<td><%= member_cause.report_count rescue "0" %></td>
+				</tr>                         
+			<% end -%>
+		</tbody>
+	</table> 
+</div>
+<div class="column side_column">
+	<div class="box">
+		<%= text_field_tag 'mp_filter', nil, :placeholder => 'Type to filter list...', :id => 'mp_filter' %>
+	</div>
+	<div class="box">
+		<h3>Top Supporters</h3>     
+		<table>
+		<% @supporters.each do |mc| -%>
+			<tr>
+				<td><%= link_to mc.member.full_name, cause_member_url(@cause, mc.member) %></td>
+				<td><%= mc.average_rating rescue '- '%></td>
+			</tr>
 		<% end -%>
-	</tbody>
-</table>
+		</table>
+	</div>
+	<div class="box">
+		<h3>Top Rebellers</h3>
+		<table>
+		<% @rebellers.each do |mc| -%>
+			<tr>
+				<td><%= link_to mc.member.full_name, cause_member_url(@cause, mc.member) %></td>
+				<td><%= mc.average_rating rescue '- '%></td>
+			</tr>
+		<% end -%>
+		</table>
+	</div>
+</div>
+<div class="clear"></div>

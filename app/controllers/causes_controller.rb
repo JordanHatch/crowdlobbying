@@ -2,12 +2,16 @@ class CausesController < ApplicationController
   before_filter :get_cause, :only => [:show, :edit, :update, :destroy]
   
   def index 
-    @causes = Cause.all
+    @causes = Cause.order('created_at DESC').all
   end
 
   def show
     # cause found            
     @members = Member.order('last_name ASC, first_name ASC')
+    
+    @supporters = @cause.member_causes.where('average_rating > 0').order('average_rating DESC, report_count DESC').limit(5)
+    @rebellers = @cause.member_causes.where('average_rating > 0').order('average_rating ASC, report_count DESC').limit(5)
+    
   end
 
   def new              

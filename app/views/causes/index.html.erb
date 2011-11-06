@@ -1,5 +1,5 @@
 <div id="intro">
-	<p>Crowdlobbying is an web application designed to make it easier to collaboratively lobby MPs to gain support for a Parliamentary issue.</p>
+	<p>Crowdlobbying is a web app which makes it easier to collaboratively lobby MPs for a Parliamentary issue.</p>
 	<ol id="steps">
 		<li>
 			<h2>Create your cause</h2>
@@ -21,14 +21,19 @@
 	<div class="clear"></div>
 </div>
 
-<h1>Current Causes</h1>
-                
-<p><%= link_to 'Start a new cause', new_cause_url %></p>
-
-<table>
-	<tbody> 
-		<% @causes.each do |c| -%>
-			<tr><td><%= link_to c.title, cause_url(c) %></td></tr>
-		<% end -%>  
-	</tbody>
-</table>
+<div class="column half left">
+	<p>It's easy to create a new cause. Click below to get started.</p>
+	
+	<p><%= link_to 'Create a cause', new_cause_url, :class => 'get_started' %></p>
+</div>
+<div class="column half right">   
+	<h3>Latest Causes</h3>
+	<table>
+		<tbody> 
+			<% @causes.each do |c| -%>
+				<tr><td><%= link_to c.title, cause_url(c) %></td></tr>
+			<% end -%>  
+		</tbody>
+	</table>                 
+</div>
+<div class="clear"></div>

@@ -7,7 +7,9 @@ body {
 p { margin: 1em 0; }    
 a { color: #2D536C; text-decoration: underline; }
 a:hover, a:active { color: #1B3241; }     
-
+                  
+.left { float: left; }
+.right { float: right; }
 .clear { clear: both; }
 
 #wrap {
@@ -20,9 +22,9 @@ a:hover, a:active { color: #1B3241; }
 
 #header {
 	background: #434343;
-	font-size: 1.8em;
+	font-size: 1.6em;
 	font-weight: bold;   
-	padding: 10px;
+	padding: 15px;
 }         
 #header h1 a {
 	color: #fff;      
@@ -44,17 +46,25 @@ a:hover, a:active { color: #1B3241; }
 	margin-bottom: 16px;
 }         
 #content h2 { font-size: 1.2em; font-weight: bold; margin-bottom: 10px; }
+#content h3 { font-size: 1.1em; font-weight: bold; margin-bottom: 10px; }
 
 table {
 	width: 100%;        
 }               
 
-table td, table th {                     
+table td, table th {   
+	background: #fff;                  
 	border: 1px solid #ccc;
-	padding: 5px;
-}         
+	padding: 7px;
+	font-size: 0.9em;
+}                   
+table tr.even td { background: #f6f6f6; }
 
-table th { background: #777; color: #fff; text-align: left; padding: 8px; }    
+table th { background: #aaa; border-color: #666; color: #333; text-align: left; padding: 8px; }    
+table.sorted th { cursor: pointer; }
+table.sorted tr th { background-image: url('../images/bg.gif'); background-repeat: no-repeat; background-position: right center; }
+table.sorted tr th.headerSortUp { background-image: url('../images/asc.gif'); }
+table.sorted tr th.headerSortDown { background-image: url('../images/desc.gif'); }
 
 table td.rating_green { background: #BAD4C2; }
 table td.rating_yellow { background: #E7EAC0; }
@@ -67,7 +77,45 @@ form input[type=submit]:hover { border-color: #aaa; background: #d0d0d0; }
 form .field_with_errors input { border-color: #993434; }
 
 table td.no_reports { text-align: center; padding: 20px; }    
-                                                                      
+                  
+.description { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; } 
+
+.column { }
+.column.main_column { width: 670px; float: left; }
+.column.side_column { width: 240px; float: right; }
+.column.side_column h3 { font-size: 1.3em; font-weight: normal; margin-bottom: 7px; } 
+
+.column.side_column #mp_filter { border: 1px solid #ddd; width: 225px; font-size: 1.1em; padding: 5px; }
+.column.side_column .box { padding-bottom: 15px; }
+
+.column.side_column table { width: 180px; }
+.column.side_column table td { border: none; padding: 8px 0px; }
+                 
+.column.half { width: 49%; }
+.column.half.left p { margin: 0.5em 0; text-align: center; }
+.column.half.right { margin-top: 5px; }
+
+a.get_started {     
+	background: #426999;
+	background-image: -webkit-linear-gradient(#649FC1, #426999);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	display: inline-block; 
+	font-size: 1.2em;
+	padding: 14px 14px;
+	margin: 10px auto;         
+	text-align: center;  
+	font-weight: bold;
+	color: #f0f0f0;    
+	text-decoration: none;
+	text-shadow: #2A4363 0px 1px 1px;
+}      
+a.get_started:hover {
+	background: #5181BF;  
+	background-image: -webkit-linear-gradient(#629CD3, #5181BF);  
+}             
+                
 .errors { background: #FFD9DB; padding: 8px; border: 1px solid #994043; } 
 .errors li { padding: 3px; font-size: 0.8em; }
 
@@ -143,8 +191,8 @@ p.rating_intro { color: #555; line-height: 1.1em; font-size: 1.2em; }
 	border: 1px solid #ccc;
 }              
 #intro p { margin: 0; }
-#intro p:first-child { font-size: 1.5em; font-weight: bold; color: #555; text-shadow: #fff 0px 1px 1px; }    
-#intro #steps { margin-top: 20px; }
+#intro p:first-child { font-size: 1.5em; font-weight: bold; color: #555; line-height: 1.2em; text-shadow: #fff 0px 1px 1px; }    
+#intro #steps { margin-top: 15px; }
 #intro #steps li {
 	float: left;                
 	padding: 10px 20px;
@@ -155,4 +203,17 @@ p.rating_intro { color: #555; line-height: 1.1em; font-size: 1.2em; }
 }  
 #intro #steps li h2 { font-size: 1.1em; text-shadow: #fff 0px 1px 1px; }
 #intro #steps li:first-child { padding-left: 0px; }
-#intro #steps li:last-child { padding-right: 0px; border: none; }
+#intro #steps li:last-child { padding-right: 0px; border: none; }          
+
+#footer {
+	text-align: center;   
+	color: #888;
+	margin: 20px 0px;
+	font-size: 0.8em;
+}               
+#footer a {
+	color: #777;
+}               
+#footer a:hover {
+	color: #444;
+}
