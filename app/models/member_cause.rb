@@ -26,9 +26,9 @@ class MemberCause < ActiveRecord::Base
       "against"
     when 5
       "neither for or against"
-    when 6..7
+    when 6..8
       "for"
-    when 8..10
+    when 9..10
       "strongly for"
     end
   end

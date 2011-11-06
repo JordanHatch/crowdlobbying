@@ -1,0 +1,7 @@
+<h1><%= link_to @cause.title, cause_url(@cause) %></h1>
+
+<h2><%= link_to @member.full_name, cause_member_url(@cause, @member) %></h2>
+    
+<p class="rating_intro">Thanks for submitting a report. All you have to do is give the member a friendly call or email and ask their opinion, then fill in the form below with their response.</p>                 
+
+<%= render :partial => 'form' %>

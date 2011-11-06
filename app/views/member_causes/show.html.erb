@@ -25,27 +25,22 @@
 
 <h2>Reports</h2>
 
-<table>
-	<thead>
-		<tr>
-			<th>Date</th>
-			<th>Rating</th>
-			<th>Description</th>
-		</tr>
-	</thead>                    
-	<tbody>   
-		<% if @member_cause.reports.count > 1 -%>
-			<% @member_cause.reports.each do |r| -%>
-				<tr>
-					<td><%= r.created_at.strftime("%M %D %Y %H %m %S") %></td>
-					<td><%= r.rating %></td>
-					<td><%= r.description %></td>
-				</tr>
-			<% end -%>
-		<% else -%>   
-			<tr>
-				<td class="no_reports" colspan="3">No reports yet. Get in touch with <%= @member.first_name %> and <%= link_to "let us know what they think", new_cause_member_report_url(@cause, @member) %>.</td>
-			</tr>
-		<% end -%>
-	</tbody>
-</table>
+<div class="reports">         
+<% if @member_cause.reports.count >= 1 -%>
+	<div class="add_report">
+		<%= link_to "Add a new report", new_cause_member_report_url(@cause, @member) %>
+	</div>
+	<% @member_cause.reports.each do |r| -%>
+		<div class="report">
+   			<div class="rating"><%= r.rating %><span class="outoften">/10</span><span class="inwords"><%= r.rating_in_words %></span></div>
+			<div class="wrap">
+				<div class="description"><%= r.description %></div>
+				<div class="meta"><%= distance_of_time_in_words_to_now r.created_at %> ago</div>     
+			</div>
+			<div class="clear"></div>
+		</div>
+	<% end -%>
+<% else -%>   
+	<p class="noreports">No reports yet. Get in touch with <%= @member.first_name %> and <%= link_to "let us know what they think", new_cause_member_report_url(@cause, @member) %>.</p>
+<% end -%>    
+</div>

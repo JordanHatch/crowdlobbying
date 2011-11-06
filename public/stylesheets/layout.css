@@ -27,6 +27,7 @@ a:hover, a:active { color: #1B3241; }
 #header h1 a {
 	color: #fff;      
 	text-decoration: none;
+	text-shadow: #888 0px 1px 1px;
 }                        
 #header h1 a:hover {
 	color: #ddd;
@@ -58,8 +59,19 @@ table th { background: #777; color: #fff; text-align: left; padding: 8px; }
 table td.rating_green { background: #BAD4C2; }
 table td.rating_yellow { background: #E7EAC0; }
 table td.rating_red { background: #D4AFAD; } 
+                                             
+form label { display: block; font-weight: bold; padding-bottom: 5px; }
+form input, form textarea { border: 1px solid #bbb; padding: 5px; font-size: 1.2em; }
+form input[type=submit] { background: #f0f0f0; border: 1px solid #ccc; font-size: 0.8em; padding: 6px 12px; }
+form input[type=submit]:hover { border-color: #aaa; background: #d0d0d0; }
+form .field_with_errors input { border-color: #993434; }
 
-table td.no_reports { text-align: center; padding: 20px; }             
+table td.no_reports { text-align: center; padding: 20px; }    
+                                                                      
+.errors { background: #FFD9DB; padding: 8px; border: 1px solid #994043; } 
+.errors li { padding: 3px; font-size: 0.8em; }
+
+p.rating_intro { color: #555; line-height: 1.1em; font-size: 1.2em; }         
 
 .member_info {
 	background: #ddd;
@@ -72,7 +84,8 @@ table td.no_reports { text-align: center; padding: 20px; }
 .member_info ul { width: 270px; }
 .member_info li {
 	list-style: square;
-}
+}           
+
 .member_rating {
 	background: #ddd;
 	padding: 10px;  
@@ -86,12 +99,60 @@ table td.no_reports { text-align: center; padding: 20px; }
 	font-weight: bold;
 	padding: 50px 25px;
 	float: right; 
-	width: 120px;
+	width: 150px;
 }               
 .member_rating p {
 	float: left;
 	margin: 0em;
-	font-size: 1.5em;
-	padding: 43px 25px;
-	width: 180px;
-}      
+	font-size: 1.4em;
+	padding: 8px 15px 0;
+	width: 180px;  
+	line-height: 1.3em;
+}          
+.member_rating strong {
+	font-weight: bold;
+}                     
+
+.reports { margin-bottom: 10px; } 
+
+.add_report a { display: block; background: #CDE0EE; padding: 10px; margin-bottom: 10px; }
+                
+.report .rating { float: left; border: 1px solid #ddd; width: 190px; margin-right: 10px; font-size: 4em; padding: 0.42em 0; text-align: center; font-weight: bold; }
+.report .rating span.outoften { font-size: 0.5em; padding-left: 10px; font-weight: normal; }
+.report .rating span.inwords { font-size: 0.25em; font-weight: normal; display: block; padding-top: 10px; } 
+.report .wrap { width: 725px; float: left; }
+.report .description { background: #eee; padding: 10px; min-height: 120px; }  
+.report .meta { color: #777; font-size: 0.8em; padding: 10px 0px; }                                                                                       
+
+.noreports {
+	padding: 20px;      
+	font-size: 1.4em;   
+	color: #444;     
+	margin: 0;
+	background: #f0f0f0;
+}
+
+/* Intro */
+#intro {
+	background: #f0f0f0;
+	background-image: -webkit-linear-gradient(#f0f0f0, #e0e0e0);
+	padding: 20px;          
+	font-size: 1.2em;
+	color: #444;                 
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+}              
+#intro p { margin: 0; }
+#intro p:first-child { font-size: 1.5em; font-weight: bold; color: #555; text-shadow: #fff 0px 1px 1px; }    
+#intro #steps { margin-top: 20px; }
+#intro #steps li {
+	float: left;                
+	padding: 10px 20px;
+	width: 190px;      
+	font-size: 0.9em;   
+	list-style: decimal inside;
+	border-right: 1px solid #ccc;
+}  
+#intro #steps li h2 { font-size: 1.1em; text-shadow: #fff 0px 1px 1px; }
+#intro #steps li:first-child { padding-left: 0px; }
+#intro #steps li:last-child { padding-right: 0px; border: none; }

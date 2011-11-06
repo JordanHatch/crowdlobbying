@@ -1,0 +1,31 @@
+<%= form_for [@cause, @member, @report] do |f| %>
+    
+	<% if @report.errors.count > 0 -%>
+	<ul class="errors">
+		<% @report.errors.full_messages.each do |e| -%>
+			<li><%= e %></li>
+		<% end -%>
+	</ul>
+	<% end -%>
+
+	<p>
+		<%= f.label :rating, "Opinion Rating" %>
+		1 <%= f.radio_button :rating, '1' %>
+		2 <%= f.radio_button :rating, '2' %>     
+		3 <%= f.radio_button :rating, '3' %>
+		4 <%= f.radio_button :rating, '4' %>
+		5 <%= f.radio_button :rating, '5' %>
+		6 <%= f.radio_button :rating, '6' %>
+		7 <%= f.radio_button :rating, '7' %>
+		8 <%= f.radio_button :rating, '8' %>
+		9 <%= f.radio_button :rating, '9' %>
+		10 <%= f.radio_button :rating, '10' %>
+	</p>                            
+	<p>
+		<%= f.label :description, "Description" %>
+		<%= f.text_area :description, :size => '60x4' %>
+	</p>                                            
+	<p>
+		<%= f.submit "Save" %>
+	</p>
+<% end %>  

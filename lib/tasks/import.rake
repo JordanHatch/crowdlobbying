@@ -19,8 +19,6 @@ namespace :import do
     failed_count = 0
     
     (doc/"m:commonsmember").each do |member|        
-      
-      break if i > 100
                                           
       print "[#{i}/#{count}] Loading " + (member/"m:firstname").innerHTML + " " + (member/"m:lastname").innerHTML + "... "
       i += 1                                      

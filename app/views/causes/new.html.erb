@@ -1,6 +1,14 @@
 <h1>New Cause</h1>
 
 <%= form_for @cause do |f| %>
+    
+	<% if @cause.errors.count > 0 -%>
+	<ul class="errors">
+		<% @cause.errors.full_messages.each do |e| -%>
+			<li><%= e %></li>
+		<% end -%>
+	</ul>
+	<% end -%>
 
 	<p>
 		<%= f.label :title, "Title" %>
