@@ -4,7 +4,7 @@
     
 	<% if @cause.errors.count > 0 -%>
 	<ul class="errors">
-		<% @cause.errors.full_messages.each do |e| -%>
+		<% @cause.errors.messages.each do |e| -%>
 			<li><%= e %></li>
 		<% end -%>
 	</ul>

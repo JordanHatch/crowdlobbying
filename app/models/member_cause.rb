@@ -3,7 +3,7 @@ class MemberCause < ActiveRecord::Base
   belongs_to :member
   belongs_to :cause
   
-  has_many :reports
+  has_many :reports, :dependent => :destroy
   
   def rating_class
     case average_rating

@@ -10,20 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111105163838) do
+ActiveRecord::Schema.define(:version => 20111108081242) do
 
   create_table "causes", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "friendly_url"
   end
 
   create_table "member_causes", :force => true do |t|
     t.integer  "member_id"
     t.integer  "cause_id"
-    t.float    "average_rating"
-    t.integer  "report_count"
+    t.float    "average_rating", :default => 0.0
+    t.integer  "report_count",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -7,25 +7,29 @@
 		<% end -%>
 	</ul>
 	<% end -%>
-
+                   
+	<h2>What level of support did <%= @member.first_name %> show for this cause?</h2>
+	<div class="rating_grid">
+		<% (1..10).each do |n| -%>
+			<div class="rating_grid_item rating_<%= n %>">
+				<%= f.label :rating, n, :value => n %>
+				<%= f.radio_button :rating, n %>
+			</div>
+		<% end -%>                 
+		<div class="clear"></div>
+	</div>
+	    
+	<h2 class="heading_with_input"><%= f.label :description, "Did #{@member.first_name} have any other comments?" %></h2>                  
+	<p class="input_with_heading">
+		<%= f.text_area :description, :class => 'description_field', :size => '60x4' %>
+	</p>   
+	<% if @report.new_record? -%> 
+   	<h2 class="heading_with_input">To reduce spambots, please solve the image verification below.</h2>                  
 	<p>
-		<%= f.label :rating, "Opinion Rating" %>
-		1 <%= f.radio_button :rating, '1' %>
-		2 <%= f.radio_button :rating, '2' %>     
-		3 <%= f.radio_button :rating, '3' %>
-		4 <%= f.radio_button :rating, '4' %>
-		5 <%= f.radio_button :rating, '5' %>
-		6 <%= f.radio_button :rating, '6' %>
-		7 <%= f.radio_button :rating, '7' %>
-		8 <%= f.radio_button :rating, '8' %>
-		9 <%= f.radio_button :rating, '9' %>
-		10 <%= f.radio_button :rating, '10' %>
-	</p>                            
-	<p>
-		<%= f.label :description, "Description" %>
-		<%= f.text_area :description, :size => '60x4' %>
-	</p>                                            
-	<p>
-		<%= f.submit "Save" %>
+		<%= recaptcha_tags %>
+	</p>                  	
+	<p class="submit">
+		<%= f.submit "Add report", :class => 'action_button' %>
 	</p>
+	<% end -%>            
 <% end %>  

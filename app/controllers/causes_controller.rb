@@ -11,7 +11,6 @@ class CausesController < ApplicationController
     
     @supporters = @cause.member_causes.where('average_rating > 0').order('average_rating DESC, report_count DESC').limit(5)
     @rebellers = @cause.member_causes.where('average_rating > 0').order('average_rating ASC, report_count DESC').limit(5)
-    
   end
 
   def new              
@@ -20,7 +19,7 @@ class CausesController < ApplicationController
   
   def create
     @cause = Cause.new(params[:cause])
-    
+                   
     if @cause.save
       flash[:notice] = 'Cause has been created'
       redirect_to cause_url(@cause)

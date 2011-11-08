@@ -5,7 +5,7 @@ class Report < ActiveRecord::Base
   
   after_save :calculate_member_cause_average
   
-  validates :rating, :presence => true, :numericality => { :only_integer => true }    
+  validates :rating, :presence => true, :numericality => { :only_integer => true, :allow_blank => true }    
   
   def rating_in_words
     case rating 

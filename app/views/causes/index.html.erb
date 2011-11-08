@@ -31,7 +31,12 @@
 	<table>
 		<tbody> 
 			<% @causes.each do |c| -%>
-				<tr><td><%= link_to c.title, cause_url(c) %></td></tr>
+				<tr>
+					<td>
+						<p class="cause_teaser"><%= link_to c.title, cause_url(c) %></p>
+						<p class="cause_teaser"><%= c.description %></p>
+					</td>
+				</tr>
 			<% end -%>  
 		</tbody>
 	</table>                 
