@@ -5,7 +5,7 @@ class Cause < ActiveRecord::Base
   before_create :create_friendly_url
   after_create :create_member_causes
   
-  validates :title, :presence => true     
+  validates :title, :presence => true      
          
   def to_param
     "#{self.id}-#{self.friendly_url}"

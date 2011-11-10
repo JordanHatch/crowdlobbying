@@ -8,7 +8,7 @@ class ReportsController < ApplicationController
   def create
     @report = @member_cause.reports.build(params[:report])
     
-    if verify_recaptcha(:model => @report, :message => "The verification code was incorrect") && @report.save
+    if verify_recaptcha(:model => @report, :timeout => 10, :message => "The verification code was incorrect") && @report.save
       flash[:notice] = 'Your report has been added.'
       redirect_to cause_member_url(@cause, @member)
     else

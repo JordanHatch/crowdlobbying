@@ -4,21 +4,26 @@
     
 	<% if @cause.errors.count > 0 -%>
 	<ul class="errors">
-		<% @cause.errors.messages.each do |e| -%>
+		<% @cause.errors.full_messages.each do |e| -%>
 			<li><%= e %></li>
 		<% end -%>
 	</ul>
 	<% end -%>
 
 	<p>
-		<%= f.label :title, "Title" %>
+		<h2><%= f.label :title, "Title" %></h2>
 		<%= f.text_field :title %>	
 	</p>                            
 	
 	<p>
-		<%= f.label :description, "Description" %>
+		<h2><%= f.label :description, "Description" %></h2>
 		<%= f.text_area :description, :size => '60x4' %>
 	</p>                            
+	          
+	<p>
+		<h2>To reduce spambots, please solve the image verification below.</h2>
+		<%= recaptcha_tags %>
+	</p>
 	
 	<p>
 		<%= f.submit "Create" %>

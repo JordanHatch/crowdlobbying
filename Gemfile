@@ -15,7 +15,7 @@ gem 'json'
 gem 'jquery-rails'
 gem 'hpricot'               
 
-gem "recaptcha", :require => "recaptcha/rails"
+gem "recaptcha", :git => "git://github.com/ambethia/recaptcha.git"
 
 # Gems used only for assets and not required
 # in production environments by default.

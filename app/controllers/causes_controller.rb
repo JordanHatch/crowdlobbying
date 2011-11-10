@@ -20,7 +20,7 @@ class CausesController < ApplicationController
   def create
     @cause = Cause.new(params[:cause])
                    
-    if @cause.save
+    if verify_recaptcha(:model => @cause, :timeout => 10, :message => "The verification code was incorrect") and @cause.save
       flash[:notice] = 'Cause has been created'
       redirect_to cause_url(@cause)
     else
