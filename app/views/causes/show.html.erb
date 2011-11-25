@@ -49,7 +49,7 @@
 		<% @rebellers.each do |mc| -%>
 			<tr>
 				<td><%= link_to mc.member.full_name, cause_member_url(@cause, mc.member) %></td>
-				<td><%= mc.average_rating rescue '- '%></td>
+				<td><%= mc.formatted_average_rating rescue '- '%></td>
 			</tr>
 		<% end -%>
 		</table>
