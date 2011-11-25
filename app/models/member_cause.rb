@@ -13,9 +13,9 @@ class MemberCause < ActiveRecord::Base
     case average_rating
     when 1..4
       "red"
-    when 4..8
+    when 4..7
       "yellow"
-    when 8..10
+    when 7..10
       "green"
     end
   end 
