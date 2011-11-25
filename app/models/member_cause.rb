@@ -11,9 +11,9 @@ class MemberCause < ActiveRecord::Base
   
   def rating_class
     case average_rating
-    when 1..4
+    when 1..3.99
       "red"
-    when 4..7
+    when 4..6.99
       "yellow"
     when 7..10
       "green"
