@@ -18,7 +18,7 @@
 </div>                           
 <div class="member_rating">
 	<p><%= @member.first_name %> is <strong><%= @member_cause.rating_in_words %></strong> <%= @cause.title %></p>     
-	<div class="rating"><%= @member_cause.average_rating %></div>
+	<div class="rating"><%= @member_cause.formatted_average_rating %></div>
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>            

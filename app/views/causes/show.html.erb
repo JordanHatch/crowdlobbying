@@ -21,7 +21,7 @@
 				<tr class="<%= cycle('odd','even') %>">
 					<td class="member_name"><%= link_to member_cause.member.full_name, cause_member_url(@cause, member_cause.member) %></td> 
 				   	<td><%= member_cause.member.party.abbr %></td> 
-					<td class="rating_<%= member_cause.rating_class rescue 'none' %>"><%= member_cause.average_rating rescue "-" %></td>
+					<td class="rating_<%= member_cause.rating_class rescue 'none' %>"><%= member_cause.formatted_average_rating rescue "-" %></td>
 				   	<td><%= member_cause.report_count rescue "0" %></td>
 				</tr>                         
 			<% end -%>

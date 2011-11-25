@@ -4,6 +4,10 @@ class MemberCause < ActiveRecord::Base
   belongs_to :cause
   
   has_many :reports, :dependent => :destroy
+              
+  def formatted_average_rating
+    sprintf("%.1f",average_rating)
+  end
   
   def rating_class
     case average_rating
