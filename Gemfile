@@ -5,7 +5,7 @@ gem 'rails', '3.1.10'
 gem 'mysql2'
 
 gem 'colorize'
-gem 'json'
+gem 'json', '1.7.7'
 
 gem 'jquery-rails'
 gem 'hpricot'
